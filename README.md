@@ -43,4 +43,4 @@ To preview the "on the day" behaviour, add a time to the address, for example
 - The machine is a render of the Varian TrueBeam model in `model/`. The renders show the model's own "trueBEAM" and
   "VARIAN" markings, which is intentional for this internal department site.
 - Fonts (Libre Caslon, Public Sans) load from Google Fonts. The page falls back to Georgia if they can't load.
-- `src/*.webp` are the three render layers (fixed stand, rotating gantry, couch). `src/*.jpg` are the toned portraits.
+- `src/*.webp` are the three render layers (fixed stand, rotating gantry, couch). `src/*.jpg` are the toned portraits..
