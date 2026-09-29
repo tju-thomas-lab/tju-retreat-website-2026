@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 Enterprise Medical Physics Retreat</title>
+<meta name="description" content="Jefferson Medical Physics, 2026 Retreat. Friday, November 13, 1:00 to 5:15 PM Eastern, Bluemle Life Sciences Building, Room 105, Philadelphia.">
+<meta name="theme-color" content="#F1ECE3">
+<link rel="icon" href="%%FAVICON%%">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:wght@400;700&family=Public+Sans:wght@500;600&display=swap">
+<style>
+/* ==========================================================================
+   Jefferson Medical Physics, 2026 Retreat
+   Half a clock: the gantry turns from 1:00 to 5:15 as you move through the agenda.
+   ========================================================================== */
+
+:root{
+  color-scheme:light;
+  --paper:#F1ECE3;
+  --ink:#1E2B38;
+  --ink-2:#48525E;
+  --ink-3:#5B6169;
+  --rule:#D8D0C2;
+  --cool:#7FA1BC;
+  --warm:#D9A54F;
+  --now:#F3E2B4;
+  --hover:rgba(243,226,180,.6);
+  --menu:#FBF8F2;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .27 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  --display:"Libre Caslon Display","Libre Caslon Text",Georgia,"Times New Roman",serif;
+  --text:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans","Helvetica Neue",Arial,sans-serif;
+
+  --pad:clamp(20px,5vw,56px);
+  --wrap:1120px;
+  --gap:clamp(40px,6vw,72px);
+  --space:clamp(72px,10vw,120px);
+}
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper) var(--grain);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+h1,h2,h3,p,ol,figure{margin:0}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.nowrap{white-space:nowrap}
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{width:min(100% - 2 * var(--pad),var(--wrap));margin-inline:auto}
+.icon{flex:none;width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.skip{position:fixed;left:12px;top:-80px;z-index:100;padding:10px 14px;border-radius:4px;background:var(--ink);color:var(--paper);font:600 14px/1.2 var(--sans);text-decoration:none}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 10px)}
+.top{padding:24px 0 0;font:500 13px/1.4 var(--sans);letter-spacing:.01em;color:var(--ink-2)}
+
+/* ---------- Spacing scale: everything below uses these ---------- */
+/* 8 / 16 / 24 / 40 / 64 / 96, doubling into the section gaps */
+
+/* ---------- Header: one title, one block of details ---------- */
+.head{padding:clamp(40px,5vw,72px) 0 clamp(32px,4vw,56px)}
+.head .cols{align-items:end;row-gap:24px}
+.head__title{font:400 clamp(2.15rem,.8rem + 2.6vw,3.25rem)/1.06 var(--display);letter-spacing:-.016em;text-wrap:balance}
+.head__when{font:400 clamp(21px,.8vw + 15px,25px)/1.25 var(--display)}
+.head__where{margin-top:8px;color:var(--ink-2);font-size:16px}
+.utils{display:flex;flex-wrap:wrap;gap:0 28px;margin-top:8px}
+.util{display:inline-flex;align-items:center;gap:7px;padding:11px 0;border:0;background:none;color:var(--ink);font:500 14px/1.2 var(--sans);letter-spacing:.005em;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;text-decoration-color:var(--ink);cursor:pointer;list-style:none}
+.util::-webkit-details-marker{display:none}
+.util::marker{content:""}
+.util:hover{text-decoration-thickness:2px}
+.cal{position:relative}
+.cal[open] .cal__chev{transform:rotate(180deg)}
+.cal__chev{transition:transform .15s ease}
+.cal__menu{position:absolute;top:calc(100% + 4px);left:-12px;z-index:60;width:max-content;min-width:14rem;max-width:calc(100vw - 2 * var(--pad));padding:6px;border:1px solid var(--rule);border-radius:6px;background:var(--menu);box-shadow:0 18px 40px -14px rgba(30,43,56,.35),0 2px 6px rgba(30,43,56,.08)}
+.cal__item{display:flex;flex-direction:column;gap:1px;padding:10px 12px;border-radius:4px;color:var(--ink);font:600 14px/1.35 var(--sans);text-decoration:none}
+.cal__item:hover{background:rgba(30,43,56,.07)}
+.cal__item:focus-visible{outline-offset:-2px}
+.cal__item[hidden]{display:none}
+.cal__hint{color:var(--ink-3);font-size:13px;font-weight:400}
+@media (prefers-reduced-motion:no-preference){.cal[open] .cal__menu{animation:pop .14s ease-out}}
+@keyframes pop{from{opacity:0;transform:translateY(-4px)}}
+
+/* ---------- Board: the agenda and the machine, side by side on the same two columns ---------- */
+.board{padding:0 0 calc(var(--space) * .7)}
+.board .cols{align-items:start}
+.hero__agenda{container-type:inline-size;min-width:0}
+.hero__right{container-type:inline-size;min-width:0}
+@media (max-width:899px){.hero__right{order:-1}}   /* on a phone the machine comes first, so a tap on the agenda moves something you can see */
+@media (min-width:900px){.hero__right{margin-left:calc(var(--gap) * -.7)}}   /* the ghost half of the dial may hang into the gutter */
+
+/* ---------- The agenda: big rows, so the whole row is the target ---------- */
+.agenda__title{margin-bottom:16px;font:400 clamp(24px,.8vw + 18px,28px)/1.15 var(--display)}
+.rows{padding:0;list-style:none;border-top:1px solid var(--ink)}
+.row{position:relative;isolation:isolate;display:grid;grid-template-columns:6.6rem minmax(0,1fr);column-gap:14px;align-items:baseline;min-height:62px;padding:16px 0;border-bottom:1px solid var(--rule);cursor:default}
+.row::before{content:"";position:absolute;inset:-1px -14px;z-index:-1;border-radius:4px;background:transparent;transition:background-color .2s ease}
+.row__time{font-size:16px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.row__end{color:var(--ink-3)}
+.row__name{font-size:19px;line-height:1.35}
+.row--talk .row__name{font-weight:700}
+.row__role{display:block;margin-bottom:1px;font:500 12.5px/1.4 var(--sans);letter-spacing:.01em;color:var(--ink-3)}
+.row--talk{align-items:end}
+@supports (align-items:last baseline){.row--talk{align-items:last baseline}}
+.row.is-past .row__time,.row.is-past .row__name{color:var(--ink-3)}
+.row.is-now::before{background:var(--now)}
+.row.is-active::before{background:var(--hover)}
+.row.is-now,.row.is-active{border-bottom-color:transparent}
+@container (max-width:400px){
+  .row{grid-template-columns:minmax(0,1fr);row-gap:1px;padding:12px 0}
+  .row__time{font-size:14px;color:var(--ink-3)}
+  .row__name{font-size:clamp(16px,4.6cqw,18px)}
+}
+
+/* ---------- The machine ---------- */
+.hero__right{container-type:inline-size;min-width:0}
+@media (min-width:900px){.hero__right{position:sticky;top:20px}}
+.dial{max-width:640px;margin-inline:auto}
+.stage{position:relative;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.stage svg{width:100%;height:auto;overflow:hidden}
+.stage image{pointer-events:none}
+.ring{fill:none;stroke:var(--ink);stroke-width:2;opacity:.55}
+.ring--ghost{opacity:.10}
+.tick{fill:none;stroke:var(--ink);stroke-width:1.8;opacity:.45}
+.tick--hour{stroke-width:3;opacity:.85}
+.arc{fill:none;stroke-width:12;stroke-linecap:butt;transition:stroke-width .25s ease,opacity .25s ease}
+.arc--plain{stroke:var(--ink);opacity:.30}
+.arc--quiet{stroke:var(--ink);opacity:.14}
+.arc--cool{stroke:var(--cool)}
+.arc--warm{stroke:var(--warm)}
+.arc.is-now,.arc.is-active{stroke-width:20;opacity:1}
+.arc--plain.is-active,.arc--plain.is-now,.arc--quiet.is-active,.arc--quiet.is-now{stroke:var(--ink);opacity:.75}
+.arc.is-past{opacity:.30}
+.elapsed{fill:none;stroke:var(--ink);stroke-width:4;stroke-linecap:round;transition:opacity .5s ease}
+.num{font:400 46px/1 var(--display);fill:var(--ink-2);text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:var(--paper);stroke-width:9px;stroke-linejoin:round}
+.hit{fill:transparent;pointer-events:all;cursor:crosshair}
+.readout{width:91.2%;margin-top:clamp(0px,.5cqw,6px);text-align:center;pointer-events:none;min-height:9.6rem}      /* centred under the machine's axis */
+.readout__time{font:400 clamp(32px,8cqw,48px)/1.05 var(--display);letter-spacing:-.012em;font-variant-numeric:tabular-nums}
+.readout__role{margin-top:6px;color:var(--ink-3);font:500 13px/1.3 var(--sans);letter-spacing:.01em}
+.readout__role:empty{display:none}
+.readout__name{margin-top:4px;color:var(--ink);font-size:clamp(16px,3.2cqw,19px);line-height:1.3}
+.readout__detail{margin:8px auto 0;max-width:27em;color:var(--ink-2);font-size:clamp(14px,2.8cqw,16px);line-height:1.4;text-wrap:balance}
+.readout__detail:empty{display:none}
+/* narrow: crop to the dial and the machine */
+@container (max-width:440px){
+  .dial{max-width:520px}
+  .readout{width:92.6%;min-height:10.4rem}
+  .stage{aspect-ratio:885 / 900;overflow:hidden}
+  .stage svg{position:absolute;width:101.69%;max-width:none;left:0;top:-4.444%}
+}
+
+/* ---------- Speakers ---------- */
+.speakers{padding:0 0 calc(var(--space) * 1.1)}
+.cols{display:grid;grid-template-columns:minmax(0,1fr);row-gap:var(--gap)}
+@media (min-width:900px){.cols{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap)}}
+@media (min-width:900px){
+  .speakers .cols{row-gap:0;grid-template-rows:repeat(4,auto)}
+}
+.speaker{position:relative;min-width:0}
+@media (min-width:900px){@supports (grid-template-rows:subgrid){.speaker{display:grid;grid-row:span 4;grid-template-rows:subgrid}}}
+.speaker__photo{position:relative;width:100%;height:auto;aspect-ratio:5 / 4;object-fit:cover;border-radius:3px}
+.speaker--cool .speaker__photo{object-position:50% 16%}
+.speaker--warm .speaker__photo{object-position:50% 20%}
+.speaker__name{position:relative;margin-top:24px;padding-top:18px;font:400 19px/1.35 var(--text)}
+.speaker__role{display:block;margin-bottom:2px;font:500 13px/1.4 var(--sans);letter-spacing:.01em;color:var(--ink-3)}
+.speaker__name::before{content:"";position:absolute;top:0;left:0;width:48px;height:4px;background:var(--cool)}
+.speaker--warm .speaker__name::before{background:var(--warm)}
+.speaker__talk{margin-top:8px;max-width:15em;font:400 clamp(26px,1vw + 18px,32px)/1.14 var(--display);letter-spacing:-.008em;text-wrap:balance}
+.speaker__links{display:flex;flex-wrap:wrap;align-self:start;gap:0 22px;margin-top:10px;font:500 13px/1.5 var(--sans);letter-spacing:.01em}
+.speaker__links a{padding:8px 0;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.speaker__links a:hover{text-decoration-thickness:2px}
+
+/* ---------- Print: a plain schedule ---------- */
+@media print{
+  :root{--paper:#fff;--ink:#000;--ink-2:#222;--ink-3:#444;--grain:none;--now:#fff}
+  body{background:#fff;font-size:11pt}
+  .hero__right,.utils,.skip,.speaker__links{display:none!important}
+  .head{padding:0 0 10pt}
+  .cols{display:block}
+  .head__title{font-size:26pt}
+  .head__when{margin-top:8pt;font-size:14pt}
+  .board{padding-bottom:0}
+  .agenda{margin-top:12pt}
+  .row{min-height:0;padding:4pt 0;break-inside:avoid}
+  .row__name{font-size:12pt}
+  .speakers{padding-bottom:0}
+  .speakers .cols{display:grid;grid-template-columns:1fr 1fr;column-gap:24pt;margin-top:12pt}
+  .speaker__photo{width:90pt;aspect-ratio:1}
+  .speaker__name{margin-top:6pt;padding-top:0}
+  .speaker__name::before{display:none}
+  .speaker__talk{font-size:13pt;margin-top:3pt}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#agenda">Skip to agenda</a>
+
+<main>
+  <header class="head" aria-labelledby="title">
+    <div class="wrap cols">
+      <h1 class="head__title" id="title">2026 Enterprise Medical Physics Retreat</h1>
+      <div class="head__details">
+        <p class="head__when"><time datetime="2026-11-13">Friday, November 13, 2026</time><br><span class="nowrap"><time datetime="2026-11-13T13:00-05:00">1:00</time>&ndash;<time datetime="2026-11-13T17:15-05:00">5:15&nbsp;PM</time> Eastern</span></p>
+        <p class="head__where">Bluemle Life Sciences Building, Room 105<br>233 S. 10th Street, Philadelphia</p>
+        <div class="utils">
+          %%CAL%%
+          <a class="util" href="%%MAPS%%" target="_blank" rel="noopener noreferrer">Directions%%ICON_EXT%%<span class="vh"> (opens Google Maps in a new tab)</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="board" aria-label="Agenda">
+    <div class="wrap cols">
+      <div class="hero__agenda agenda" id="agenda">
+        <h2 class="agenda__title">Agenda</h2>
+        <ol class="rows">
+%%ROWS%%
+        </ol>
+      </div>
+
+      <div class="hero__right">
+        <div class="dial">
+          <div class="stage" aria-hidden="true">
+%%STAGE%%
+          </div>
+          <div class="readout" aria-hidden="true"><div class="readout__time"></div><div class="readout__role"></div><div class="readout__name"></div><div class="readout__detail"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="speakers" aria-label="Speakers">
+    <div class="wrap cols">
+%%SPEAKERS%%
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var START = Date.UTC(2026, 10, 13, 18, 0, 0);          // 1:00 PM Eastern (EST, UTC-5)
+  var SPAN = %%SPAN%%;                                     // minutes, 1:00 to 5:15 PM
+  var END = START + SPAN * 60000;
+  var A0 = %%A0%%, DEG = 0.5;                              // a real clock: 1:00 sits at 30 degrees, and the hand moves half a degree a minute
+  var CX = %%CX%%, CY = %%CY%%, R = %%R%%;
+  var VX = %%VX%%, VY = %%VY%%, VW = %%VW%%;               // the stage's viewBox origin and width, for pointer maths
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  // Preview any moment with ?now=2026-11-13T14:10:00-05:00
+  var forced = null;
+  try {
+    var q = new URLSearchParams(window.location.search).get('now');
+    if (q && !isNaN(Date.parse(q))) forced = Date.parse(q);
+  } catch (e) {}
+  function now() { return forced !== null ? forced : Date.now(); }
+
+  var stage = document.querySelector('.stage'), svg = stage.querySelector('svg');
+  var hand = svg.querySelector('.hand'), elapsed = svg.querySelector('.elapsed'), hit = svg.querySelector('.hit');
+  var rows = [].slice.call(document.querySelectorAll('.row'));
+  var arcs = [].slice.call(svg.querySelectorAll('.arc'));
+  var ro = { time: document.querySelector('.readout__time'), role: document.querySelector('.readout__role'), name: document.querySelector('.readout__name'), detail: document.querySelector('.readout__detail') };
+  var sessions = rows.map(function (r) {
+    return { start: +r.getAttribute('data-start'), end: +r.getAttribute('data-end'), name: r.getAttribute('data-name'), range: r.getAttribute('data-range'), role: r.getAttribute('data-role'), detail: r.getAttribute('data-detail') };
+  });
+  var A1 = A0 + SPAN * DEG;
+
+  function ang(m) { return A0 + m * DEG; }
+  function sessionAt(m) { for (var i = 0; i < sessions.length; i++) if (m >= sessions[i].start && m < sessions[i].end) return i; return m >= SPAN ? sessions.length - 1 : 0; }
+  function pt(a, r) { var t = a * Math.PI / 180; return [CX + r * Math.sin(t), CY - r * Math.cos(t)]; }
+  function arcD(a1) {
+    a1 = Math.min(a1, 179.99);
+    if (a1 - A0 < 0.05) return '';
+    var p0 = pt(A0, R), p1 = pt(a1, R);
+    return 'M' + p0[0].toFixed(2) + ' ' + p0[1].toFixed(2) + 'A' + R + ' ' + R + ' 0 0 1 ' + p1[0].toFixed(2) + ' ' + p1[1].toFixed(2);
+  }
+
+  /* ---- The gantry: always chasing a target, with a speed limit, so it never jumps ---- */
+  var cur = A0, target = A0, speed = 460, raf = 0, last = 0, onArrive = null;
+  function apply(a) { cur = a; hand.setAttribute('transform', 'rotate(' + a.toFixed(2) + ' ' + CX + ' ' + CY + ')'); }
+  function tick(t) {
+    var dt = Math.min(64, t - last); last = t;
+    var k = 1 - Math.exp(-dt / 120), step = (target - cur) * k, cap = speed * dt / 1000;
+    apply(cur + Math.max(-cap, Math.min(cap, step)));
+    if (Math.abs(target - cur) > 0.03) raf = requestAnimationFrame(tick);
+    else { apply(target); raf = 0; if (onArrive) { var f = onArrive; onArrive = null; f(); } }
+  }
+  function go(a, v) {
+    target = Math.max(A0, Math.min(A1, a)); speed = v || 460;
+    if (reduce) { apply(target); return; }
+    if (!raf) { last = performance.now(); raf = requestAnimationFrame(tick); }
+  }
+
+  /* ---- One idea of "the session in focus": pointed at, tapped, or (on the day) under way ---- */
+  var preview = -1, pinned = -1;
+  function restAngle() { var t = now(); return t < START ? A0 : t >= END ? A1 : ang((t - START) / 60000); }
+  function show() {
+    var t = now(), i = preview >= 0 ? preview : pinned, focused = i >= 0, time, role = '', name, detail = '';
+    if (focused) { var s = sessions[i]; time = s.range; role = s.role; name = s.name; detail = s.detail; }
+    else if (t >= START && t < END) { var c = sessions[sessionAt((t - START) / 60000)]; i = sessions.indexOf(c); time = c.range; role = c.role; name = 'Now: ' + c.name; detail = c.detail; }
+    else { i = -1; time = '1:00\u20135:15 PM'; name = 'Friday, November 13'; }
+    ro.time.textContent = time; ro.role.textContent = role; ro.name.textContent = name; ro.detail.textContent = detail;
+    rows.forEach(function (r, k) { r.classList.toggle('is-active', focused && k === i); });
+    arcs.forEach(function (a, k) { a.classList.toggle('is-active', focused && k === i); });
+  }
+  function settle() {
+    var i = preview >= 0 ? preview : pinned;
+    go(i >= 0 ? ang(sessions[i].start) : restAngle());
+    show();
+  }
+
+  /* ---- Point at the agenda ---- */
+  rows.forEach(function (row, i) {
+    row.addEventListener('pointerenter', function (e) { if (e.pointerType === 'touch') return; preview = i; settle(); });
+    row.addEventListener('pointerleave', function (e) { if (e.pointerType === 'touch') return; preview = -1; settle(); });
+    row.addEventListener('pointerup', function (e) {          // touch has no hover, so a tap holds the gantry there; a second tap lets go
+      if (e.pointerType !== 'touch') return;
+      pinned = pinned === i ? -1 : i; preview = -1; settle();
+    });
+  });
+
+  /* ---- Or point at the dial: the gantry turns to whichever agenda block the pointer is over ---- */
+  function blockAt(e) {
+    var r = svg.getBoundingClientRect(), k = VW / r.width;
+    var x = VX + (e.clientX - r.left) * k, y = VY + (e.clientY - r.top) * k, dx = x - CX, dy = y - CY;
+    if (dx < 0 || Math.hypot(dx, dy) < R * 0.14) return -1;
+    var deg = Math.atan2(dx, -dy) * 180 / Math.PI;               // 0 at 12 o'clock, clockwise: exactly a clock
+    return sessionAt(Math.max(0, Math.min(SPAN - 0.01, (deg - A0) / DEG)));
+  }
+  function follow(e) {
+    var i = blockAt(e);
+    if (i === preview) return;
+    preview = i; settle();
+  }
+  hit.addEventListener('pointermove', function (e) { if (e.pointerType === 'touch' && e.buttons === 0) return; follow(e); });
+  hit.addEventListener('pointerdown', function (e) { follow(e); });
+  hit.addEventListener('pointerleave', function (e) { if (e.pointerType === 'touch') return; preview = -1; settle(); });
+  hit.addEventListener('pointerup', function (e) { if (e.pointerType === 'touch') { pinned = preview; preview = -1; settle(); } });
+
+  /* ---- Where the afternoon is right now ---- */
+  function mark(el, i) {
+    var t = now(), m = (t - START) / 60000, s = sessions[i];
+    el.classList.toggle('is-now', t >= START && t < END && m >= s.start && m < s.end);
+    el.classList.toggle('is-past', t >= START + s.end * 60000);
+  }
+  var introRunning = false, introDone = false;
+  function live() {
+    rows.forEach(mark); arcs.forEach(mark);
+    var a = restAngle(); elapsed.setAttribute('d', arcD(a)); elapsed.style.opacity = a - A0 > 0.5 ? 1 : 0;
+    if (preview < 0 && pinned < 0 && !introRunning) go(a);
+    show();
+  }
+
+  /* ---- One slow sweep across the afternoon when the machine first comes into view ---- */
+  function intro() {
+    if (introDone) return; introDone = true;
+    if (reduce) { live(); return; }
+    introRunning = true;
+    onArrive = function () { window.setTimeout(function () { introRunning = false; go(restAngle(), 150); show(); }, 250); };
+    go(A1, 105);
+  }
+  apply(A0); live();
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); window.setTimeout(intro, 450); }
+    }, { threshold: 0.4 });
+    io.observe(stage);
+  } else { intro(); }
+  if (forced === null) window.setInterval(live, 30000);
+
+  /* ---- Add to calendar menu ---- */
+  var cal = document.querySelector('[data-cal]');
+  if (cal) {
+    var toggle = cal.querySelector('summary');
+    cal.addEventListener('keydown', function (e) { if (e.key === 'Escape' && cal.open) { cal.open = false; toggle.focus(); } });
+    cal.addEventListener('focusout', function (e) { if (cal.open && e.relatedTarget && !cal.contains(e.relatedTarget)) cal.open = false; });
+    [].forEach.call(cal.querySelectorAll('.cal__item'), function (a) {
+      a.addEventListener('click', function () { window.setTimeout(function () { cal.open = false; }, 0); });
+    });
+    document.addEventListener('click', function (e) { if (cal.open && !cal.contains(e.target)) cal.open = false; });
+    if (typeof window.claude === 'undefined') {
+      [].forEach.call(cal.querySelectorAll('[data-ics]'), function (a) { a.hidden = false; });
+    }
+  }
+})();
+</script>
+</body>
+</html>
